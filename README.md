@@ -1,8 +1,8 @@
 
 # URL Shortener
 
-This is a [URL shortener](naserelz010-001-site1.ftempurl.com/) web application built using ASP.NET Core and Entity Framework Core. The application allows users to create short links for their long URLs, and track statistics on the number of visits to their shortened links.
-[go to the website](naserelz010-001-site1.ftempurl.com/)
+This is a <a href="http://naserelz010-001-site1.ftempurl.com/" target="_blank">URL shortener</a>web application built using ASP.NET Core and Entity Framework Core. The application allows users to create short links for their long URLs, and track statistics on the number of visits to their shortened links.
+<a href="http://naserelz010-001-site1.ftempurl.com/" target="_blank">go to the website</a>
 ## Features
 
 -   User registration and login with real email confirmation.
