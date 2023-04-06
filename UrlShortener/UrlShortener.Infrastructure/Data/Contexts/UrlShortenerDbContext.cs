@@ -21,7 +21,6 @@ namespace UrlShortener.Infrastructure.Data.Contexts
         }
         public virtual DbSet<ShortUrl> ShortUrls { get; set; }
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

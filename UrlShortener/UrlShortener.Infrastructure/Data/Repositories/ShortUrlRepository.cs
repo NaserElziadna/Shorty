@@ -57,7 +57,15 @@ namespace UrlShortener.Infrastructure.Data.Repositories
 
         public async Task<ShortUrl> GetByShortUrlHashAsync(Domain.ValueObjects.ShortUrlHash shortUrlHash)
         {
-            return await _dbContext.ShortUrls.Include(sh=>sh.ShortUrlHash).FirstOrDefaultAsync(a => a.ShortUrlHash.Hash == shortUrlHash.GetHash());
+            return await _dbContext.ShortUrls.Include(sh => sh.ShortUrlHash).FirstOrDefaultAsync(a => a.ShortUrlHash.Hash == shortUrlHash.GetHash());
+        }
+        public async Task<ShortUrl> GetByShortUrlByIdAsync(int id)
+        {
+            return await _dbContext.ShortUrls
+                .Include(sh => sh.ShortUrlHash)
+                .Include(a => a.LinkStatistics)
+                .Include(u => u.User)
+                .FirstOrDefaultAsync(a => a.Id == id);
         }
 
         public void Remove(ShortUrl entity)

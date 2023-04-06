@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UrlShortener.Application.ShortUrl.DTOs;
 using UrlShortener.Application.ShortUrl.Interfaces;
@@ -12,40 +14,29 @@ namespace UrlShortener.Application.ShortUrl.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IHashingService _hashingService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private UserManager<Domain.Entities.User> _userManager;
 
-        public ShortUrlService(IUnitOfWork unitOfWork, IHashingService hashingService)
+        public ShortUrlService(UserManager<Domain.Entities.User> userManager, IUnitOfWork unitOfWork, IHashingService hashingService, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = unitOfWork;
             _hashingService = hashingService;
+            _userManager = userManager;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<CreateShortUrlResponseDTO> CreateShortUrlAsync(CreateShortUrlRequestDTO request)
         {
-            var url = new Domain.Entities.ShortUrl
-            {
-                OriginalUrl = request.LongUrl,
-                ExpirationDate = request.ExpirationDate
-            };
-
             // Generate a unique hash code for the short URL
-            var hash = _hashingService.GenerateHash(url.OriginalUrl);
+            var hash = _hashingService.GenerateHash(request.LongUrl);
 
             var suInDB = await _unitOfWork.shortUrls.GetByShortUrlHashAsync(hash);
             // Check if the hash code already exists in the database
             while (suInDB != null)
             {
-                hash = _hashingService.GenerateHash(url.OriginalUrl);
+                hash = _hashingService.GenerateHash(request.LongUrl);
                 suInDB = await _unitOfWork.shortUrls.GetByShortUrlHashAsync(hash);
             }
-
-            // Save the short URL to the database
-            url.ShortUrlHash = new Domain.Entities.ShortUrlHash
-            {
-                Hash = hash.GetHash(),
-            };
-            _unitOfWork.shortUrls.Add(url);
-
-            await _unitOfWork.SaveChangesAsync();
 
             return new CreateShortUrlResponseDTO
             {
@@ -64,6 +55,7 @@ namespace UrlShortener.Application.ShortUrl.Services
 
             return new ShortUrlDTO
             {
+                id = url.Id,
                 OriginalUrl = url.OriginalUrl,
                 ShortUrl = new ShortUrlHash(url.ShortUrlHash.Hash),
                 ExpirationDate = url.ExpirationDate
@@ -114,6 +106,25 @@ namespace UrlShortener.Application.ShortUrl.Services
             }
 
             _unitOfWork.shortUrls.Remove(url);
+        }
+
+        public async Task addVisitToShortUrlById(int id)
+        {
+            var shortUrl = await _unitOfWork.shortUrls.GetByShortUrlByIdAsync(id);
+            if (shortUrl != null)
+            {
+                if (shortUrl.LinkStatistics == null)
+                {
+                    shortUrl.LinkStatistics = new Domain.Entities.LinkStatistics
+                    {
+                        VisitsCount = 0,
+                    };
+                }
+                shortUrl.LinkStatistics.VisitsCount++;
+
+                _unitOfWork.shortUrls.Update(shortUrl);
+                await _unitOfWork.SaveChangesAsync();
+            }
         }
     }
 }

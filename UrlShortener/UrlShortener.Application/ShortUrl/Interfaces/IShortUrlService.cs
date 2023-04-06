@@ -10,6 +10,7 @@ namespace UrlShortener.Application.ShortUrl.Interfaces
         Task<ShortUrlDTO> GetShortUrlAsync(string shortUrl);
         Task<List<ShortUrlDTO>> GetAllShortUrls();
         Task UpdateShortUrl(ShortUrlDTO shortUrl);
+        Task addVisitToShortUrlById(int id);
         Task DeleteShortUrlAsync(string shortUrl);
     }
 }

@@ -1,10 +1,11 @@
 {
   "ConnectionStrings": {
-    "__ConnectionString": "Data Source=SQL5064.site4now.net;Initial Catalog=db_a79134_jointadmin;User Id=db_a79134_jointadmin_admin;Password=joint123",
-    "_ConnectionString": "server=YAN2011;database=jointData;user id=joint_user;password='joint123'",
-    "ConnectionString": "Data Source=(localdb)\\ProjectsV13;Initial Catalog=UrlShortener;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+    "_ConnectionString": "Data Source=(localdb)\\ProjectsV13;Initial Catalog=UrlShortener;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+    "ConnectionString": "Data Source=SQL5054.site4now.net;Initial Catalog=db_a97423_naserelz010;User Id=db_a97423_naserelz010_admin;Password=naser123"
   },
-  "BASE_URL": "active"
-
+  "SendGridAPIKey": "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",
+  "BASE_URL": "http://naserelz010-001-site1.ftempurl.com",
+  "RedirectToUrl": "/r/",
+  "SMTP_PASS": "wqcoqypariuatbzy",
+  "SMTP_FROM_MAIL": "elziadna10@gmail.com"
 }
-

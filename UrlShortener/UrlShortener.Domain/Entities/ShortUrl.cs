@@ -8,7 +8,7 @@ namespace UrlShortener.Domain.Entities
         public string OriginalUrl { get; set; }
         public ShortUrlHash ShortUrlHash { get; set; }
         public string? ExpirationDate { get; set; }
-
+        public LinkStatistics LinkStatistics { get; set; }
         public string UserId { get; set; }
         public virtual User User { get; set; }
 

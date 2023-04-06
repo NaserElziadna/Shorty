@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Threading.Tasks;
 using UrlShortener.Domain.Interfaces;
@@ -12,13 +14,16 @@ namespace UrlShortener.Infrastructure.Data.UnitOfWork
     {
         private readonly UrlShortenerDbContext _context;
 
-        public UnitOfWork(UrlShortenerDbContext context, IMemoryCache memoryCache)
+        public UnitOfWork(UrlShortenerDbContext context, IMemoryCache memoryCache, UserManager<Domain.Entities.User> userManager, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
 
             shortUrls = new ShortUrlRepository(_context, memoryCache);
+            users = new UserRepository(_context, memoryCache, userManager, httpContextAccessor);
         }
         public IShortUrlRepository shortUrls { get; set; }
+
+        public IUserRepository users { get; set; }
 
         public int Complete()
         {

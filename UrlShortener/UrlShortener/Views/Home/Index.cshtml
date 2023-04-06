@@ -4,5 +4,39 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Naser Elziadna</a>.</p>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center mb-4">Enter URL to Shorten</h3>
+            <form id="shorten-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="url-input" placeholder="Enter URL">
+                    <small id="url-error-msg" class="form-text text-danger d-none">
+                        Please enter a valid URL ,
+                        <span style="color:red;">Note To Add : HTTP/HTTPS schema and a real URL</span>
+                    </small>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Shorten</button>
+            </form>
+        </div>
+    </div>
+    <br />
+    <div id="links" class="row">
+        <div id="links-container" class="col-md-12">
+            @*<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">New Short Link</h5>
+                        <p class="card-text">
+                            <span id="short-url"></span>
+                            <a href="#" id="launch-btn" class="btn btn-primary btn-sm ml-2">
+                                <i class="fa fa-external-link-alt"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+
 </div>

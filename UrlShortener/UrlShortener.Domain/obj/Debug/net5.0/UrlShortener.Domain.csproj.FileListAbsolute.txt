@@ -12,3 +12,4 @@ C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Domain\
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Domain\obj\Debug\net5.0\UrlShortener.Domain.dll
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Domain\obj\Debug\net5.0\ref\UrlShortener.Domain.dll
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Domain\obj\Debug\net5.0\UrlShortener.Domain.pdb
+C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Domain\obj\Debug\net5.0\UrlShortener.Domain.csproj.AssemblyReference.cache

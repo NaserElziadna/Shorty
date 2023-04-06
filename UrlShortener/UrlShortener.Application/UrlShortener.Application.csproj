@@ -8,12 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="User\DTOs\" />
-    <Folder Include="User\Interfaces\" />
-    <Folder Include="User\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\UrlShortener.Domain\UrlShortener.Domain.csproj" />
     <ProjectReference Include="..\UrlShortener.Infrastructure\UrlShortener.Infrastructure.csproj" />
   </ItemGroup>
