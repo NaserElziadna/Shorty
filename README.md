@@ -22,6 +22,7 @@ This is a <a href="http://naserelz010-001-site1.ftempurl.com/" target="_blank">U
 	- logout
 	- manage nav
 	- delete personal data
+	- remember me.option
 	- etc.
 -   Create short URLs with custom codes and expiration dates (expiration date check in not emplemented yet).
 -   View a list of all your created short links, with the number of visits to each link.
