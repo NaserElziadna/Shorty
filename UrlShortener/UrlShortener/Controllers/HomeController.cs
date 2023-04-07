@@ -95,6 +95,23 @@ namespace UrlShortener.Controllers
             return View(result);
         }
 
+        [HttpGet()]
+        [Route("getUserStatistic")]
+        public async Task<IActionResult> GetUserStatisticAPI()
+        {
+            var result = (dynamic)null;
+
+            try
+            {
+                result = await _userService.GetShortUrlsForCurrentUserAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Json(result);
+        }
+
         public IActionResult Privacy()
         {
             return View();

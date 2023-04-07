@@ -1,3 +1,5 @@
+C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\bin\Debug\net5.0\UrlShortener.Infrastructure.StaticWebAssets.xml
+C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\bin\Debug\net5.0\UrlShortener.Application.StaticWebAssets.xml
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\bin\Debug\net5.0\UrlShortener.Application.deps.json
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\bin\Debug\net5.0\UrlShortener.Application.dll
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\bin\Debug\net5.0\ref\UrlShortener.Application.dll
@@ -13,11 +15,8 @@ C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Applica
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\UrlShortener.Application.csproj.CoreCompileInputs.cache
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\scopedcss\bundle\UrlShortener.Application.styles.css
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\staticwebassets\UrlShortener.Application.StaticWebAssets.Manifest.cache
+C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\staticwebassets\UrlShortener.Application.StaticWebAssets.xml
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\UrlShortener.Application.RazorTargetAssemblyInfo.cache
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\UrlShortener.Application.dll
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\ref\UrlShortener.Application.dll
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\UrlShortener.Application.pdb
-C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\bin\Debug\net5.0\UrlShortener.Infrastructure.StaticWebAssets.xml
-C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\bin\Debug\net5.0\UrlShortener.Application.StaticWebAssets.xml
-C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\staticwebassets\UrlShortener.Application.StaticWebAssets.xml
-C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Application\obj\Debug\net5.0\UrlShortener.Application.csproj.CopyComplete

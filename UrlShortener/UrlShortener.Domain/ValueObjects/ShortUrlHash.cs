@@ -5,7 +5,7 @@ namespace UrlShortener.Domain.ValueObjects
     public class ShortUrlHash : ValueObject<ShortUrlHash>
     {
         public int Id { get; set; }
-        private readonly string _hash;
+        public string _hash { get; set; }
 
         public ShortUrlHash()
         {

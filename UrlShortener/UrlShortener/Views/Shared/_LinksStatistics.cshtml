@@ -2,35 +2,97 @@
 @using Microsoft.Extensions.Configuration;
 @inject IConfiguration Configuration
 
-<div class="table-responsive">
-    <table class="table table-bordered table-condensed table-striped table-hover sortable">
-        @if (Model == null || Model.links.Count == 0)
-        {
+@{
+
+    var urlPrefix = Configuration["BASE_URL"]+Configuration["RedirectToUrl"]; 
+}
+    @*<div class="table-responsive" data-toggle="table"
+             data-search="true"
+             data-show-columns="true">
+            <table class="table table-bordered table-condensed table-striped table-hover sortable">
+                @if (Model == null || Model.links.Count == 0)
+                {
+                    <tr>
+                        <td colspan="10">No Record's found.</td>
+                    </tr>
+
+                }
+                else
+                {
+                    <thead>
+                        <tr class="danger">
+                            <th data-field="OriginalUrl" data-custom-attribute="OriginalUrl"> OriginalUrl</th>
+                            <th data-field="ShortUrl" data-custom-attribute="ShortUrl">ShortUrl</th>
+                            <th data-field="ExpirationDate" data-custom-attribute="ExpirationDate">ExpirationDate</th>
+                            <th data-field="Visits" data-custom-attribute="star">Visits</th>
+                        </tr>
+                    </thead>
+
+                    foreach (var item in Model.links)
+                    {
+                        <tr>
+                            <td>@item.OriginalUrl</td>
+                            <td><a href="@($"{Configuration["BASE_URL"]+Configuration["RedirectToUrl"]+item.ShortUrl.GetHash()}")" target="_blank">@item.ShortUrl.GetHash()</a></td>
+                            <td>@item.ExpirationDate</td>
+                            <td>@item.VisitsCount</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>*@
+
+    <table id="table"
+           data-toggle="table"
+           data-height="460"
+           data-ajax="ajaxRequest"
+           data-search="true"
+           data-pagination="true"
+           data-show-columns="true"
+           data-show-refresh="true"
+           data-show-columns-toggle-all="true"
+           data-show-pagination-switch="true"
+           data-show-toggle="true"
+           data-show-multi-sort="true"
+           data-search-highlight="true"
+           data-show-fullscreen="true">
+        <thead>
             <tr>
-                <td colspan="10">No Record's found.</td>
+                <th data-field="originalUrl" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">OriginalUrl</th>
+                <th data-field="shortUrl._hash" data-sortable="true" data-formatter="urlFormatter" data-search-highlight-formatter="customSearchFormatter">ShortUrl</th>
+                <th data-field="expirationDate" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">ExpirationDate</th>
+                <th data-field="visitsCount" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">visitsCount</th>
             </tr>
-
-        }
-        else
-        {
-            <thead>
-                <tr class="danger">
-                    <th> OriginalUrl</th>
-                    <th>ShortUrl</th>
-                    <th>ExpirationDate</th>
-                    <th>Visits</th>
-                </tr>
-            </thead>
-
-            foreach (var item in Model.links)
-            {
-                <tr>
-                    <td>@item.OriginalUrl</td>
-                    <td><a href="@($"{Configuration["BASE_URL"]+Configuration["RedirectToUrl"]+item.ShortUrl.GetHash()}")" target="_blank">@item.ShortUrl.GetHash()</a></td>
-                    <td>@item.ExpirationDate</td>
-                    <td>@item.VisitsCount</td>
-                </tr>
-            }
-        }
+        </thead>
     </table>
-</div>  
+
+    <script>
+        // your custom ajax request here
+        //"links": [
+        //{
+        //    "id": 0,
+        //        "originalUrl": "www.nmmsoft.com",
+        //            "shortUrl": {
+        //        "id": 0,
+        //            "_hash": "lFhYyys"
+        //    },
+        //    "expirationDate": "4/6/2023",
+        //        "visitsCount": 0
+        //}]
+        window.customSearchFormatter = function (value, searchText) {
+            return value.toString().replace(new RegExp('(' + searchText + ')', 'gim'), '<span style="background-color: pink;border: 1px solid red;border-radius:90px;padding:4px">$1</span>')
+        }
+
+        function ajaxRequest(params) {
+            let url = `${window.location.origin}/getUserStatistic`;
+            //var url = 'https://examples.wenzhixin.net.cn/examples/bootstrap_table/data'
+            $.get(url).then(function (res) {
+                console.log(res.links)
+                params.success(res.links)
+            })
+        }
+
+        function urlFormatter(value, row) {
+            return `<i class="fa-solid fa-link"></i>  <a href="@(urlPrefix)${value}" target="_blank">${value}</a>`
+            //return '<i class="fa ' + icon + '"></i> ' + value
+        }
+    </script>

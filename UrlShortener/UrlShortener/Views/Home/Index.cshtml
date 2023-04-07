@@ -12,7 +12,10 @@
             <h3 class="text-center mb-4">Enter URL to Shorten</h3>
             <form id="shorten-form">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="url-input" placeholder="Enter URL">
+                    <div class="row">
+                        <input type="text" class="form-control" id="url-input" placeholder="Enter URL">
+                        <span id="loader" class="spinner-border spinner-border-sm d-none"></span>
+                    </div>
                     <small id="url-error-msg" class="form-text text-danger d-none">
                         Please enter a valid URL ,
                         <span style="color:red;">Note To Add : HTTP/HTTPS schema and a real URL</span>

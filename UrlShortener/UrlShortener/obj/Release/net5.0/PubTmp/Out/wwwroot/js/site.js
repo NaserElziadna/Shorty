@@ -57,7 +57,10 @@ class ApiClientHelper {
     }
 }
 
-
+getUserStatistic = () => {
+    let urlPath = `${window.location.origin}/getUserStatistic`;
+    return new ApiClientHelper().makeAjaxCall(new ApiClientHelper().httpTypes.GET, urlPath, "json", null, "application/json")
+};
 
 
 $(function () {
@@ -97,18 +100,20 @@ $(function () {
     $('#shorten-form').submit(function (event) {
         event.preventDefault();
         $('#url-error-msg').addClass('d-none');
+        $('#loader').removeClass('d-none');
 
         var url = $('#url-input').val();
         if (!url || !isValidUrl(url)) {
             $('#url-error-msg').removeClass('d-none')
+            $('#loader').addClass('d-none');
         } else {
             generateUrl(url).then((result) => {
                 console.log(result)
                 var newUrl = result.response.hash;
 
                 $("#links #links-container").append(linkTemplate(newUrl))
-
-            }).catch((error) => { $('#url-error-msg').addClass('d-none'); });
+                $('#loader').addClass('d-none');
+            }).catch((error) => { $('#url-error-msg').addClass('d-none'); $('#loader').addClass('d-none');});
         }
     });
 });

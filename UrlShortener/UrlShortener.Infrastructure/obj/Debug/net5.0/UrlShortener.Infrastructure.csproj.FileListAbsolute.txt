@@ -1,3 +1,4 @@
+C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\bin\Debug\net5.0\UrlShortener.Infrastructure.StaticWebAssets.xml
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\bin\Debug\net5.0\UrlShortener.Infrastructure.deps.json
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\bin\Debug\net5.0\UrlShortener.Infrastructure.runtimeconfig.json
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\bin\Debug\net5.0\UrlShortener.Infrastructure.runtimeconfig.dev.json
@@ -13,10 +14,9 @@ C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrast
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\UrlShortener.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\scopedcss\bundle\UrlShortener.Infrastructure.styles.css
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\staticwebassets\UrlShortener.Infrastructure.StaticWebAssets.Manifest.cache
+C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\staticwebassets\UrlShortener.Infrastructure.StaticWebAssets.xml
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\UrlShortener.Infrastructure.RazorTargetAssemblyInfo.cache
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\UrlShortener.Infrastructure.dll
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\ref\UrlShortener.Infrastructure.dll
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\UrlShortener.Infrastructure.pdb
 C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\UrlShortener.Infrastructure.genruntimeconfig.cache
-C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\bin\Debug\net5.0\UrlShortener.Infrastructure.StaticWebAssets.xml
-C:\Users\star\Desktop\File\Gategories\Projects\UrlShortener\UrlShortener.Infrastructure\obj\Debug\net5.0\staticwebassets\UrlShortener.Infrastructure.StaticWebAssets.xml

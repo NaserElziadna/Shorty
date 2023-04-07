@@ -24,6 +24,14 @@ a {
   border-color: #1861ac;
 }
 
+#loader {
+    position: absolute;
+    top: calc(50% - 19px);
+    right: 18px;
+    width: 23px;
+    height: 23px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

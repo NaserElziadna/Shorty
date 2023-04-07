@@ -2332,6 +2332,7 @@
           "Microsoft.AspNetCore.Identity.UI": "5.0.17",
           "Microsoft.EntityFrameworkCore": "5.0.17",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
           "SendGrid": "9.28.1",
           "UrlShortener.Domain": "1.0.0"
         },
