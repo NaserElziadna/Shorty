@@ -1,0 +1,36 @@
+﻿@model UserDTO;
+@using Microsoft.Extensions.Configuration;
+@inject IConfiguration Configuration
+
+<div class="table-responsive">
+    <table class="table table-bordered table-condensed table-striped table-hover sortable">
+        @if (Model == null || Model.links.Count == 0)
+        {
+            <tr>
+                <td colspan="10">No Record's found.</td>
+            </tr>
+
+        }
+        else
+        {
+            <thead>
+                <tr class="danger">
+                    <th> OriginalUrl</th>
+                    <th>ShortUrl</th>
+                    <th>ExpirationDate</th>
+                    <th>Visits</th>
+                </tr>
+            </thead>
+
+            foreach (var item in Model.links)
+            {
+                <tr>
+                    <td>@item.OriginalUrl</td>
+                    <td><a href="@($"{Configuration["BASE_URL"]+Configuration["RedirectToUrl"]+item.ShortUrl.GetHash()}")" target="_blank">@item.ShortUrl.GetHash()</a></td>
+                    <td>@item.ExpirationDate</td>
+                    <td>@item.VisitsCount</td>
+                </tr>
+            }
+        }
+    </table>
+</div>  

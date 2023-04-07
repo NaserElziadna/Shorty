@@ -1,0 +1,24 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+<p>
+   please click on the link from the email that sent.
+
+
+    FOR Naser Elziadna Only.(click here to verify your account)!!! Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+</p>
+    }
+    else
+    {
+<p>
+        Please check your email to confirm your account.
+</p>
+    }
+}
