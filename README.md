@@ -29,6 +29,20 @@ This is a <a href="http://naserelz010-001-site1.ftempurl.com/" target="_blank">U
 -   Share your short links with others, who can use them to visit the original URL.
 -   View detailed statistics on each short link, including the number of visits, the location of visitors, and the user agent used to access the link.
 -   Responsive Bootstrap design for optimal viewing on mobile devices.
+-   advanced data-table with many features
+	- data-toggle
+        - data-height="460"
+        - data-ajax
+        - data-search
+        - data-pagination
+        - data-show-columns
+        - data-show-refresh
+        - data-show-columns-toggle-all
+        - data-show-pagination-switch
+        - data-show-toggle
+        - data-show-multi-sort
+        - data-search-highlight
+        - data-show-fullscreen  	
 
 ## Technologies Used
 
