@@ -17,6 +17,7 @@ Redirect url Example : [http://naserelz010-001-site1.ftempurl.com/r/zjOgKU9](htt
 - Email Confirmation
 - Two Factor Authentication
 - Remember Me .option
+- and many more 
 
 ### URL Shortening
 
