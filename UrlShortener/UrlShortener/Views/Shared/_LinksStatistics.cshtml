@@ -4,95 +4,248 @@
 
 @{
 
-    var urlPrefix = Configuration["BASE_URL"]+Configuration["RedirectToUrl"]; 
+    var urlPrefix = Configuration["BASE_URL"] + Configuration["RedirectToUrl"];
 }
-    @*<div class="table-responsive" data-toggle="table"
-             data-search="true"
-             data-show-columns="true">
-            <table class="table table-bordered table-condensed table-striped table-hover sortable">
-                @if (Model == null || Model.links.Count == 0)
-                {
-                    <tr>
-                        <td colspan="10">No Record's found.</td>
-                    </tr>
 
-                }
-                else
-                {
-                    <thead>
-                        <tr class="danger">
-                            <th data-field="OriginalUrl" data-custom-attribute="OriginalUrl"> OriginalUrl</th>
-                            <th data-field="ShortUrl" data-custom-attribute="ShortUrl">ShortUrl</th>
-                            <th data-field="ExpirationDate" data-custom-attribute="ExpirationDate">ExpirationDate</th>
-                            <th data-field="Visits" data-custom-attribute="star">Visits</th>
-                        </tr>
-                    </thead>
+<table id="table"
+       data-toggle="table"
+       data-height="460"
+       data-ajax="ajaxRequest"
+       data-search="true"
+       data-pagination="true"
+       data-show-columns="true"
+       data-show-refresh="true"
+       data-show-columns-toggle-all="true"
+       data-show-pagination-switch="true"
+       data-show-toggle="true"
+       data-show-multi-sort="true"
+       data-search-highlight="true"
+       data-detail-formatter="detailFormatter"
+       data-show-fullscreen="true">
+    <thead>
+        <tr>
+            <th data-field="originalUrl" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">OriginalUrl</th>
+            <th data-field="shortUrl._hash" data-sortable="true" data-formatter="urlFormatter" data-search-highlight-formatter="customSearchFormatter">ShortUrl</th>
+            <th data-field="expirationDate" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">ExpirationDate</th>
+            <th data-field="visitsCount" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">visitsCount</th>
+            <th data-formatter="detailButtonFormatter">Actions</th>
+        </tr>
+    </thead>
+</table>
+<div id="link-details-container" class="card mt-5">
+    <h5 class="card-header">Link Details</h5>
+    <div class="card-body">
+        <h6>Expiry Date: <span id="expiry-date"></span></h6>
+        <h4 id="link-details-title">
+            <a href="" target="_blank"></a>
+            <i class="fa-solid fa-link d-none"></i>
+        </h4>
+        <h6 id="link-details-subtitle" class="card-subtitle mb-2 text-muted"></h6>
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="card-text"><strong>Total Clicks:</strong> <span id="total-clicks"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
 
-                    foreach (var item in Model.links)
-                    {
-                        <tr>
-                            <td>@item.OriginalUrl</td>
-                            <td><a href="@($"{Configuration["BASE_URL"]+Configuration["RedirectToUrl"]+item.ShortUrl.GetHash()}")" target="_blank">@item.ShortUrl.GetHash()</a></td>
-                            <td>@item.ExpirationDate</td>
-                            <td>@item.VisitsCount</td>
-                        </tr>
-                    }
-                }
-            </table>
-        </div>*@
-
-    <table id="table"
-           data-toggle="table"
-           data-height="460"
-           data-ajax="ajaxRequest"
-           data-search="true"
-           data-pagination="true"
-           data-show-columns="true"
-           data-show-refresh="true"
-           data-show-columns-toggle-all="true"
-           data-show-pagination-switch="true"
-           data-show-toggle="true"
-           data-show-multi-sort="true"
-           data-search-highlight="true"
-           data-show-fullscreen="true">
-        <thead>
-            <tr>
-                <th data-field="originalUrl" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">OriginalUrl</th>
-                <th data-field="shortUrl._hash" data-sortable="true" data-formatter="urlFormatter" data-search-highlight-formatter="customSearchFormatter">ShortUrl</th>
-                <th data-field="expirationDate" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">ExpirationDate</th>
-                <th data-field="visitsCount" data-sortable="true" data-search-highlight-formatter="customSearchFormatter">visitsCount</th>
-            </tr>
-        </thead>
-    </table>
-
-    <script>
+<script>
+    @*
         // your custom ajax request here
         //"links": [
-        //{
-        //    "id": 0,
-        //        "originalUrl": "www.nmmsoft.com",
-        //            "shortUrl": {
-        //        "id": 0,
-        //            "_hash": "lFhYyys"
-        //    },
-        //    "expirationDate": "4/6/2023",
-        //        "visitsCount": 0
-        //}]
-        window.customSearchFormatter = function (value, searchText) {
-            return value.toString().replace(new RegExp('(' + searchText + ')', 'gim'), '<span style="background-color: pink;border: 1px solid red;border-radius:90px;padding:4px">$1</span>')
+                //{
+                //    "id": 0,
+                //        "originalUrl": "http://www.google.com",
+                //            "shortUrl": {
+                //        "id": 0,
+                //            "_hash": "zjOgKU9"
+                //    },
+                //    "expirationDate": "4/6/2023",
+                //        "visitsCount": 11,
+                //            "locations": [
+                //                {
+                //                    "dataDecoded": "{\"status\":\"fail\",\"message\":\"reserved range\",\"query\":\"0.0.0.1\"}",
+                //                    "id": 1
+                //                },
+                //                {
+                //                    "dataDecoded": "{\"status\":\"success\",\"continent\":\"Asia\",\"continentCode\":\"AS\",\"country\":\"Israel\",\"countryCode\":\"IL\",\"region\":\"TA\",\"regionName\":\"Tel Aviv\",\"city\":\"Tel Aviv\",\"district\":\"\",\"zip\":\"\",\"lat\":32.0803,\"lon\":34.7805,\"timezone\":\"Asia/Jerusalem\",\"offset\":10800,\"currency\":\"ILS\",\"isp\":\"Cellcom Fixed Line Communication L.P\",\"org\":\"Cellcom-Israel\",\"as\":\"AS1680 Cellcom Fixed Line Communication L.P\",\"asname\":\"NV-ASN\",\"reverse\":\"\",\"mobile\":true,\"proxy\":false,\"hosting\":false,\"query\":\"176.12.179.10\"}",
+                //                    "id": 3
+                //                },
+                //                {
+                //                    "dataDecoded": "{\"status\":\"success\",\"continent\":\"Asia\",\"continentCode\":\"AS\",\"country\":\"Israel\",\"countryCode\":\"IL\",\"region\":\"TA\",\"regionName\":\"Tel Aviv\",\"city\":\"Tel Aviv\",\"district\":\"\",\"zip\":\"\",\"lat\":32.0803,\"lon\":34.7805,\"timezone\":\"Asia/Jerusalem\",\"offset\":10800,\"currency\":\"ILS\",\"isp\":\"Cellcom Fixed Line Communication L.P\",\"org\":\"Cellcom-Israel\",\"as\":\"AS1680 Cellcom Fixed Line Communication L.P\",\"asname\":\"NV-ASN\",\"reverse\":\"\",\"mobile\":true,\"proxy\":false,\"hosting\":false,\"query\":\"176.12.179.10\"}",
+                //                    "id": 4
+                //                },
+                //                {
+                //                    "dataDecoded": "{\"status\":\"success\",\"continent\":\"Asia\",\"continentCode\":\"AS\",\"country\":\"Israel\",\"countryCode\":\"IL\",\"region\":\"TA\",\"regionName\":\"Tel Aviv\",\"city\":\"Tel Aviv\",\"district\":\"\",\"zip\":\"\",\"lat\":32.0803,\"lon\":34.7805,\"timezone\":\"Asia/Jerusalem\",\"offset\":10800,\"currency\":\"ILS\",\"isp\":\"Cellcom Fixed Line Communication L.P\",\"org\":\"Cellcom-Israel\",\"as\":\"AS1680 Cellcom Fixed Line Communication L.P\",\"asname\":\"NV-ASN\",\"reverse\":\"\",\"mobile\":true,\"proxy\":false,\"hosting\":false,\"query\":\"176.12.179.10\"}",
+                //                    "id": 5
+                //                },
+                //                {
+                //                    "dataDecoded": "{\"status\":\"success\",\"continent\":\"Asia\",\"continentCode\":\"AS\",\"country\":\"Israel\",\"countryCode\":\"IL\",\"region\":\"TA\",\"regionName\":\"Tel Aviv\",\"city\":\"Tel Aviv\",\"district\":\"\",\"zip\":\"\",\"lat\":32.0803,\"lon\":34.7805,\"timezone\":\"Asia/Jerusalem\",\"offset\":10800,\"currency\":\"ILS\",\"isp\":\"Cellcom Fixed Line Communication L.P\",\"org\":\"Cellcom-Israel\",\"as\":\"AS1680 Cellcom Fixed Line Communication L.P\",\"asname\":\"NV-ASN\",\"reverse\":\"\",\"mobile\":true,\"proxy\":false,\"hosting\":false,\"query\":\"176.12.179.10\"}",
+                //                    "id": 6
+                //                },
+                //                {
+                //                    "dataDecoded": "{\"status\":\"success\",\"continent\":\"Asia\",\"continentCode\":\"AS\",\"country\":\"Israel\",\"countryCode\":\"IL\",\"region\":\"TA\",\"regionName\":\"Tel Aviv\",\"city\":\"Tel Aviv\",\"district\":\"\",\"zip\":\"\",\"lat\":32.0803,\"lon\":34.7805,\"timezone\":\"Asia/Jerusalem\",\"offset\":10800,\"currency\":\"ILS\",\"isp\":\"Cellcom Fixed Line Communication L.P\",\"org\":\"Cellcom-Israel\",\"as\":\"AS1680 Cellcom Fixed Line Communication L.P\",\"asname\":\"NV-ASN\",\"reverse\":\"\",\"mobile\":true,\"proxy\":false,\"hosting\":false,\"query\":\"176.12.179.10\"}",
+                //                    "id": 7
+                //                }
+                //            ]
+                //}
+       //]*@
+
+    window.customSearchFormatter = function (value, searchText) {
+        return value.toString().replace(new RegExp('(' + searchText + ')', 'gim'), '<span style="background-color: pink;border: 1px solid red;border-radius:90px;padding:4px">$1</span>')
+    }
+
+    function ajaxRequest(params) {
+        let url = `${window.location.origin}/getUserStatistic`;
+        //var url = 'https://examples.wenzhixin.net.cn/examples/bootstrap_table/data'
+        $.get(url).then(function (res) {
+            console.log(res.links)
+            params.success(res.links)
+        })
+    }
+
+    function urlFormatter(value, row) {
+        return `<i class="fa-solid fa-link"></i>  <a href="@(urlPrefix)${value}" target="_blank">${value}</a>`
+        //return '<i class="fa ' + icon + '"></i> ' + value
+    }
+    function detailButtonFormatter(value, row, index) {
+        return '<button class="btn btn-primary" onclick="showDetails(' + index + ')">View Details</button>';
+    }
+
+    function showDetails(index) {
+        var row = $('#table').bootstrapTable('getData')[index];
+        console.log(row)
+        var id = `myChart`
+        console.log(id)
+        generateLocationChart(id, row)
+        $("#link-details-title a").text(`${row.shortUrl._hash}`)
+        $("#link-details-title a").attr("href", `@(urlPrefix)${row.shortUrl._hash}`)
+        $("#link-details-title i").removeClass("d-none")
+        $("#link-details-subtitle").text(`${row.originalUrl}`)
+        $("#expiry-date").text(`${row.expirationDate}`)
+        $("#total-clicks").text(`${row.visitsCount}`)
+
+        //check expiry Date
+        // Get the expiry date from your data
+        const expiryDate = moment(row.expirationDate);
+
+        // Get the current date
+        const currentDate = moment();
+
+        console.log(row.expirationDate)
+        console.log(currentDate)
+        console.log(expiryDate)
+        console.log(expiryDate.isBefore(currentDate))
+        // Compare the two dates to see if the expiry date is before today
+        if (expiryDate.isBefore(currentDate)) {
+            $("#expiry-date").addClass('expired');
+            $("#expiry-date").text(`${$("#expiry-date").text()}  - (your link has been expired)`)
+        } else {
+            $("#expiry-date").removeClass('expired');
+        }
+    }
+    function generateLocationChart(id, row) {
+        var location = row.locations;
+        var xValues = [];
+        var yValues = [];
+        var barColors = [];
+
+        for (let i = 0; i < location.length; i++) {
+            let data = JSON.parse(location[i].dataDecoded);
+            if (data.status === "success") {
+                let country = data.country;
+                let index = xValues.indexOf(country);
+                if (index !== -1) {
+                    // If the country already exists in the xValues array,
+                    // increment the corresponding y value at the same index
+                    console.log(`country already exists - ${country}`)
+                    console.log(yValues[index])
+                    yValues[index]++;
+                } else {
+                    // If the country doesn't exist in the xValues array,
+                    // add it with a y value of 1
+                    xValues.push(country);
+                    console.log(`add country - ${country}`)
+                    yValues.push(1);
+                    barColors.push(getRandomColor());
+                }
+            } else {
+                xValues.push("unknown");
+                if (!yValues[i]) {
+                    yValues.push(1)
+                } else {
+                    yValues[i]++
+                }
+                barColors.push(getRandomColor()); //regerate each time
+            }
         }
 
-        function ajaxRequest(params) {
-            let url = `${window.location.origin}/getUserStatistic`;
-            //var url = 'https://examples.wenzhixin.net.cn/examples/bootstrap_table/data'
-            $.get(url).then(function (res) {
-                console.log(res.links)
-                params.success(res.links)
-            })
+        let index = xValues.indexOf("unknown");
+        if (yValues[index] < row.visitsCount) {
+            console.log("more unkown location -not regestired")
+            yValues[index] = yValues[index] + (row.visitsCount - yValues[index])
         }
 
-        function urlFormatter(value, row) {
-            return `<i class="fa-solid fa-link"></i>  <a href="@(urlPrefix)${value}" target="_blank">${value}</a>`
-            //return '<i class="fa ' + icon + '"></i> ' + value
+        if (location.length === 0) {
+            xValues.push("unknown")
+            yValues.push(row.visitsCount)
+            barColors.push(getRandomColor())
         }
-    </script>
+        xValues.push()
+        yValues.push(0)
+        barColors.push("#000000")
+
+        console.log(xValues)
+        console.log(yValues)
+        console.log(barColors)
+
+        new Chart(id, {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Locations"
+                }
+            }
+        });
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    //function detailFormatter(index, row) {
+    //    var html = []
+    //    $.each(row, function (key, value) {
+    //        if (key === "locations") {
+    //            //var id = `myChart${getRandomInt(1000)}`
+    //            var id = `myChart`
+    //            //html.push(`<canvas id="${id}" style="width:100%;max-width:600px"></canvas>`)
+    //            console.log(value)
+    //            console.log(id)
+    //            generateLocationChart(id, value)
+    //            html.push($("#link-details-container").html())
+    //        }
+    //    })
+    //    return html.join('')
+    //}
+</script>

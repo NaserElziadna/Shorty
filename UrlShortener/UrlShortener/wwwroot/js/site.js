@@ -64,10 +64,11 @@ getUserStatistic = () => {
 
 
 $(function () {
-    generateUrl = (LongUrl) => {
+    generateUrl = (LongUrl, selectedDate) => {
         let urlPath = `${window.location.origin}/shortenUrl`;
         return new ApiClientHelper().makeAjaxCall(new ApiClientHelper().httpTypes.POST, urlPath, "json", JSON.stringify({
-            "url": LongUrl
+            "url": LongUrl,
+            "expiryDate": selectedDate
         }), "application/json")
     };
 
@@ -99,21 +100,38 @@ $(function () {
 
     $('#shorten-form').submit(function (event) {
         event.preventDefault();
+        var error = 0;
         $('#url-error-msg').addClass('d-none');
         $('#loader').removeClass('d-none');
 
         var url = $('#url-input').val();
+        var expiryDate = $('#expiry-date-input').val();
+
+        var selectedDate = moment(expiryDate);
+        selectedDate.format("YYYY-MM-DD");
+
+        console.log(expiryDate)
+        console.log(selectedDate)
+        //var now = new Date();
+        //var selectedDate = new Date(expiryDate);
+        //if (selectedDate < now) {
+        //    $('#expiry-date-error-msg').removeClass('d-none');
+        //    error++;
+        //}
+
         if (!url || !isValidUrl(url)) {
             $('#url-error-msg').removeClass('d-none')
             $('#loader').addClass('d-none');
-        } else {
-            generateUrl(url).then((result) => {
+            error++;
+        }
+        if (error === 0) {
+            generateUrl(url, selectedDate._i).then((result) => {
                 console.log(result)
                 var newUrl = result.response.hash;
 
                 $("#links #links-container").append(linkTemplate(newUrl))
                 $('#loader').addClass('d-none');
-            }).catch((error) => { $('#url-error-msg').addClass('d-none'); $('#loader').addClass('d-none');});
+            }).catch((error) => { $('#url-error-msg').addClass('d-none'); $('#loader').addClass('d-none'); });
         }
     });
 });

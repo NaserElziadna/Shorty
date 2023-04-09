@@ -32,6 +32,22 @@ a {
     height: 23px;
 }
 
+.expired {
+    color: red;
+    font-weight: bold;
+}
+
+.bootstrap-table .fixed-table-container .table td,
+.bootstrap-table .fixed-table-container .table td.text,
+.bootstrap-table .fixed-table-container .table th,
+.bootstrap-table .fixed-table-container .table th.text,
+.bootstrap-table .fixed-table-container .table span {
+    max-width: 100px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

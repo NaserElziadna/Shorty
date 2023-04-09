@@ -8,5 +8,6 @@ namespace UrlShortener.Models
     public class UrlType
     {
         public string url { get; set; }
+        public string expiryDate { get; set; }
     }
 }

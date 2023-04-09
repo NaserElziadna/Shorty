@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var TodayDateyyyyMMdd = DateTime.Now.ToString("yyyy-MM-dd");
 }
 
 <div class="text-center">
@@ -12,13 +13,23 @@
             <h3 class="text-center mb-4">Enter URL to Shorten</h3>
             <form id="shorten-form">
                 <div class="form-group">
+                    <label for="url-input">Long Url:</label>
                     <div class="row">
-                        <input type="text" class="form-control" id="url-input" placeholder="Enter URL">
+                        <input type="text" class="form-control" id="url-input" placeholder="Enter URL" required>
                         <span id="loader" class="spinner-border spinner-border-sm d-none"></span>
                     </div>
                     <small id="url-error-msg" class="form-text text-danger d-none">
                         Please enter a valid URL ,
                         <span style="color:red;">Note To Add : HTTP/HTTPS schema and a real URL</span>
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="expiry-date-input">Expiry Date: (yyyy-MM-dd)</label>
+                    <div class="row">
+                        <input type="date" class="form-control" id="expiry-date-input" value="@TodayDateyyyyMMdd" min="@TodayDateyyyyMMdd" required>
+                    </div>
+                    <small id="expiry-date-error-msg" class="form-text text-danger d-none">
+                        Please select a date that is not before today.
                     </small>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Shorten</button>
