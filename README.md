@@ -1,61 +1,150 @@
 
 # URL Shortener
 
-This is a <a href="http://naserelz010-001-site1.ftempurl.com/" target="_blank">URL shortener</a>web application built using ASP.NET Core and Entity Framework Core. The application allows users to create short links for their long URLs, and track statistics on the number of visits to their shortened links.
-<a href="http://naserelz010-001-site1.ftempurl.com/" target="_blank">go to the website</a>
+## Introduction
+
+This is a simple URL shortener web application that allows users to create shortened URLs, which can then be used to redirect to the original URL. In addition to the basic functionality of a URL shortener, this application also includes features such as location detection, expiry date for links, user management, and a statistics page with a powerful data table.
+
+Redirect url Example : [http://naserelz010-001-site1.ftempurl.com/r/zjOgKU9](http://naserelz010-001-site1.ftempurl.com/r/zjOgKU9)
+
 ## Features
 
--   User registration and login with real email confirmation.
--   User profile management including : 
-	- password reset.
-	- email confirmation.
-	- confirm email change
-	- login with 2fa
-	- download personal data
-	- show recovery code
-	- access denied 
-	- lockout
-	- login with recovery code
-	- two factor authentication 
-	- register 
-	- login
-	- logout
-	- manage nav
-	- delete personal data
-	- remember me.option
-	- etc.
--   Create short URLs with custom codes and expiration dates (expiration date check in not emplemented yet).
--   View a list of all your created short links, with the number of visits to each link.
--   Share your short links with others, who can use them to visit the original URL.
--   View detailed statistics on each short link, including the number of visits, the location of visitors, and the user agent used to access the link.
--   Responsive Bootstrap design for optimal viewing on mobile devices.
--   advanced data-table with many features
-	- data-toggle
-        - data-height="460"
-        - data-ajax
-        - data-search
-        - data-pagination
-        - data-show-columns
-        - data-show-refresh
-        - data-show-columns-toggle-all
-        - data-show-pagination-switch
-        - data-show-toggle
-        - data-show-multi-sort
-        - data-search-highlight
-        - data-show-fullscreen  	
+### User Identity 
+
+- Log in 
+- Register
+- Log out
+- Email Confirmation
+- Two Factor Authentication
+- Remember Me .option
+- and many more 
+
+### URL Shortening
+
+-  Allows users to create shortened URLs for any website
+-  Shortened URLs can be used to redirect to the original URL
+- Powerful Redirect Logic before Redirecting
+
+### Location Detection
+
+-   Detects the location of the user accessing the shortened URL
+-   Displays the country of the user on the statistics page
+
+### Expiry Date
+
+-   Allows users to set an expiry date for the shortened URL
+-   Shortened URLs will no longer redirect after the expiry date has passed
+
+### User Management
+
+-   Mange Personal detals
+-   Provides a dashboard for logged-in users to manage their shortened URLs
+-   
+
+### Statistics Page
+
+-   Provides a comprehensive view of all shortened URLs
+-   Includes data such as total clicks, unique clicks, and country of the user
+-   **Provides a powerful data table with features such as search, search highlight, pagination, view records per page, remote refresh, refresh data, link details view, full screen, and more.**
+- Indicate if Url has been expired 
+- a Line Chart to view Links Locations with Counter 
 
 ## Technologies Used
 
+-   C#
 -   ASP.NET Core
 -   Entity Framework Core
--   ASP.NET Core Identity
+-   MSSQL
+-   HTML/CSS
 -   Bootstrap
 -   jQuery
+-   Chart.js
 
-## Getting Started
+## Screen Shots
+<table style="width:75%;height:75%;">
+  <tr>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_36_39-.png" alt="drawing" style="width:100%;"/>    
+    </td>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_37_54-%E2%80%AAHome%20Page%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+  </tr>
+<tr>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_38_16-%E2%80%AAHome%20Page%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_39_00-%E2%80%AAHome%20Page%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+  </tr>	
+	<tr>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_39_43-%E2%80%AAStatistics%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_40_45-%E2%80%AAStatistics%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+  </tr>	
+	<tr>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_41_14-%E2%80%AAStatistics%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_42_39-.png" alt="drawing" style="width:100%;"/>    
+    </td>
+  </tr>	
+	<tr>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_42_57-%E2%80%AAProfile%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_44_04-%E2%80%AAPersonal%20Data%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+  </tr>	
+	<tr>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_43_12-%E2%80%AAManage%20Email%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_43_24-%E2%80%AAChange%20password%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+  </tr>	
+	<tr>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_43_33-%E2%80%AAChange%20password%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+    <td>
+      <img src="https://github.com/NaserElziadna/Shorty/blob/main/UrlShortener/ScreenShoots/2023-04-09%2011_43_50-%E2%80%AAConfigure%20authenticator%20app%20-%20UrlShortener.png" alt="drawing" style="width:100%;"/>    
+    </td>
+  </tr>	
+</table>  
 
-To get started with the application, clone the repository and open the solution file in Visual Studio. Set the `UrlShortener.Web` project as the startup project, and run the application.
+## Installation
+
+### Prerequisites
+
+-   Visual Studio 2019 or later
+-   .NET Core SDK 3.1 or later
+-   MySQL Server 8.0 or later
+-   MySQL Workbench or any other MySQL client
+
+### Setup
+
+1.  Clone the repository to your local machine
+2.  Open the solution file `UrlShortener.sln` in Visual Studio
+3.  Open the `appsettings.json` file and set the `ConnectionStrings:DefaultConnection` value to your MySQL connection string
+4.  Open the Package Manager Console and run `Update-Database` to apply the database migrations
+5.  Build and run the application
+
+## Usage
+
+1.  Access the application using the URL `http://localhost:5000`
+2.  Sign up for an account or log in with an existing account
+3.  Shorten a URL using the "Shorten URL" button
+4.  Use the shortened URL to redirect to the original URL
+5.  View statistics for all shortened URLs on the "Statistics" page
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License
