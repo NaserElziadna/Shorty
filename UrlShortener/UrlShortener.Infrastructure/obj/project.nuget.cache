@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "etXYSAB54RtFlBqKBR3fjQQ4UxMuTEv3XOz+JJbCuSEK/rS6G2Wlp6tcY/KbaYCpB68KGfgiOsBZI3aPXInRnQ==",
+  "dgSpecHash": "WVbWzeNTXhr1BApsLMNavB8QgYsJ3hVDN70wOrqzl58Xp4wFu8eml4vfyyLycPVBt39IDF/Z+sORpSys1RnQKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Projects\\UrlShortener\\UrlShortener.Infrastructure\\UrlShortener.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Shorty\\UrlShortener\\UrlShortener.Infrastructure\\UrlShortener.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\star\\.nuget\\packages\\automapper\\5.1.1\\automapper.5.1.1.nupkg.sha512",
     "C:\\Users\\star\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

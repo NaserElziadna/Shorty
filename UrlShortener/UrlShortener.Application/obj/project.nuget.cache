@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bNCgjal+ivF0lM018EN+zskk8/Tr06Yt1nyX947tk+iONKbqZDOOGmME3Hbjr/8r6Zo7iGa6BuuuAmesDWcHPg==",
+  "dgSpecHash": "EmW1s52lMoSxmnglxlRNU+SypSnEbOyxdM8j7cQlHNZ5tSn5JC6Y4PU07e2UClCSMNFbgCgqDrmL3ycTbFysaw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Projects\\UrlShortener\\UrlShortener.Application\\UrlShortener.Application.csproj",
+  "projectFilePath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Shorty\\UrlShortener\\UrlShortener.Application\\UrlShortener.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\star\\.nuget\\packages\\automapper\\5.1.1\\automapper.5.1.1.nupkg.sha512",
     "C:\\Users\\star\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",

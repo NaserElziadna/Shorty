@@ -20,6 +20,9 @@ namespace UrlShortener.Infrastructure.Data.Contexts
             _config = config;
         }
         public virtual DbSet<ShortUrl> ShortUrls { get; set; }
+        public virtual DbSet<LinkStatistics> LinkStatistics { get; set; }
+        public virtual DbSet<ShortUrlHash> ShortUrlHashes { get; set; }
+        public virtual DbSet<StatisticLocation> StatisticLocations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,7 +30,7 @@ namespace UrlShortener.Infrastructure.Data.Contexts
             {
                 base.OnConfiguring(optionsBuilder);
                 Debug.WriteLine("Config" + _config["ConnectionStrings:ConnectionString"]);
-                optionsBuilder.UseSqlServer(_config["ConnectionStrings:ConnectionString"], b=>b.MigrationsAssembly("UrlShortener.Infrastructure"));
+                optionsBuilder.UseSqlServer(_config["ConnectionStrings:ConnectionString"], b => b.MigrationsAssembly("UrlShortener.Infrastructure"));
             }
         }
 

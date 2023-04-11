@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\star\\Desktop\\File\\Gategories\\Projects\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj": {}
+    "C:\\Users\\star\\Desktop\\File\\Gategories\\Shorty\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\star\\Desktop\\File\\Gategories\\Projects\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj": {
+    "C:\\Users\\star\\Desktop\\File\\Gategories\\Shorty\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\star\\Desktop\\File\\Gategories\\Projects\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\star\\Desktop\\File\\Gategories\\Shorty\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj",
         "projectName": "UrlShortener.Domain",
-        "projectPath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Projects\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj",
+        "projectPath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Shorty\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj",
         "packagesPath": "C:\\Users\\star\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Projects\\UrlShortener\\UrlShortener.Domain\\obj\\",
+        "outputPath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Shorty\\UrlShortener\\UrlShortener.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

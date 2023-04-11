@@ -8,5 +8,6 @@ namespace UrlShortener.Application.User.DTOs
     public class GenAndAddUrlToCurrentUserRequest
     {
         public string OriginalUrl { get; set; }
+        public string expiryDate { get; set; }
     }
 }

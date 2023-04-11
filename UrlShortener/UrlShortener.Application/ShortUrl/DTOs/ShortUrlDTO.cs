@@ -11,5 +11,6 @@ namespace UrlShortener.Application.ShortUrl.DTOs
         public string ExpirationDate { get; set; }
 
         public long VisitsCount { get; set; }
+        public System.Collections.Generic.List<Domain.Entities.StatisticLocation> Locations { get; set; }
     }
 }

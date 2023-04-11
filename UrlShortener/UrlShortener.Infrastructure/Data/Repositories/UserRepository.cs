@@ -35,6 +35,7 @@ namespace UrlShortener.Infrastructure.Data.Repositories
                     .ThenInclude(a => a.ShortUrlHash)
                 .Include(u => u.ShortUrls)
                     .ThenInclude(s => s.LinkStatistics)
+                        .ThenInclude(l => l.Locations)
                 .FirstOrDefault(a => a.Id == user.Id);//for lazy loading prop like "ShortUrls"
 
             if (lazyLoadedUser == null)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a298Oh0ovObcc46yBK3HJpIwGOKANeBuxNF403M/xXHgqbn2ulVjcUNW6nOLFwdxvR6bYdyFzF/N2Hb3xuE1Zw==",
+  "dgSpecHash": "rZNNLQHZo4+fKcjAvmMxqJbvUrspktih9Q6P8O3yjlX4oOM73lnXCNPge+VqWtss2yl+VKrDjW+IEjtVfG+mhg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Projects\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj",
+  "projectFilePath": "C:\\Users\\star\\Desktop\\File\\Gategories\\Shorty\\UrlShortener\\UrlShortener.Domain\\UrlShortener.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

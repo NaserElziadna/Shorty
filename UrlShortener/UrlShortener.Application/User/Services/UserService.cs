@@ -51,7 +51,12 @@ namespace UrlShortener.Application.User.Services
                         OriginalUrl = item.OriginalUrl,
                         ShortUrl = new Domain.ValueObjects.ShortUrlHash(item.ShortUrlHash.Hash),
                         ExpirationDate = item.ExpirationDate,
-                        VisitsCount = item.LinkStatistics != null ? item.LinkStatistics.VisitsCount : 0
+                        VisitsCount = item.LinkStatistics != null ? item.LinkStatistics.VisitsCount : 0,
+                        Locations = item.LinkStatistics != null ?
+                                        item.LinkStatistics.Locations != null ?
+                                            item.LinkStatistics.Locations :
+                                        new List<Domain.Entities.StatisticLocation>() :
+                                    new List<Domain.Entities.StatisticLocation>()
                     });
                 }
 
@@ -76,13 +81,13 @@ namespace UrlShortener.Application.User.Services
             var shortUrl = await _shortUrlService.CreateShortUrlAsync(new ShortUrl.DTOs.CreateShortUrlRequestDTO
             {
                 LongUrl = request.OriginalUrl,
-                ExpirationDate = DateTime.Now.ToString("d")
+                ExpirationDate = request.expiryDate//no need for current time
             });
 
             tmpUser.ShortUrls.Add(new Domain.Entities.ShortUrl
             {
                 OriginalUrl = request.OriginalUrl,
-                ExpirationDate = DateTime.Now.ToString("d"),
+                ExpirationDate = request.expiryDate,
                 ShortUrlHash = new Domain.Entities.ShortUrlHash
                 {
                     Hash = shortUrl.ShortUrl,

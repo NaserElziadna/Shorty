@@ -8,5 +8,7 @@ namespace UrlShortener.Domain.Entities
     public class LinkStatistics : BaseEntity<int>
     {
         public long VisitsCount { get; set; }
+        public List<StatisticLocation> Locations { get; set; }
+
     }
 }

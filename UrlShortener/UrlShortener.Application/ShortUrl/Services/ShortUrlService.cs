@@ -126,6 +126,31 @@ namespace UrlShortener.Application.ShortUrl.Services
                 await _unitOfWork.SaveChangesAsync();
             }
         }
+
+        public async Task addLocationToShortUrlById(int id, string location)
+        {
+            var shortUrl = await _unitOfWork.shortUrls.GetByShortUrlByIdAsync(id);
+            if (shortUrl != null)
+            {
+                if (shortUrl.LinkStatistics == null)
+                {
+                    shortUrl.LinkStatistics = new Domain.Entities.LinkStatistics();
+                }
+                if (shortUrl.LinkStatistics.Locations == null)
+                {
+                    shortUrl.LinkStatistics.Locations = new List<Domain.Entities.StatisticLocation>();
+                }
+
+                shortUrl.LinkStatistics.Locations.Add(new Domain.Entities.StatisticLocation
+                {
+                    dataDecoded = location
+                });
+
+                _unitOfWork.shortUrls.Update(shortUrl);
+                await _unitOfWork.SaveChangesAsync();
+            }
+        }
+
     }
 }
 

@@ -210,7 +210,27 @@ namespace UrlShortener.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ShortUrlHash");
+                    b.ToTable("ShortUrlHashes");
+                });
+
+            modelBuilder.Entity("UrlShortener.Domain.Entities.StatisticLocation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("LinkStatisticsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("dataDecoded")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LinkStatisticsId");
+
+                    b.ToTable("StatisticLocations");
                 });
 
             modelBuilder.Entity("UrlShortener.Domain.Entities.User", b =>
@@ -348,6 +368,18 @@ namespace UrlShortener.Infrastructure.Migrations
                     b.Navigation("ShortUrlHash");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("UrlShortener.Domain.Entities.StatisticLocation", b =>
+                {
+                    b.HasOne("UrlShortener.Domain.Entities.LinkStatistics", null)
+                        .WithMany("Locations")
+                        .HasForeignKey("LinkStatisticsId");
+                });
+
+            modelBuilder.Entity("UrlShortener.Domain.Entities.LinkStatistics", b =>
+                {
+                    b.Navigation("Locations");
                 });
 
             modelBuilder.Entity("UrlShortener.Domain.Entities.User", b =>
