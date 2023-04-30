@@ -29,6 +29,8 @@ Redirect url Example : [http://naserelz010-001-site1.ftempurl.com/r/zjOgKU9](htt
 
 -   Detects the location of the user accessing the shortened URL
 -   Displays the country of the user on the statistics page
+-   Example :
+	"{"status":"success","continent":"Asia","continentCode":"AS","country":"Israel","countryCode":"IL","region":"M","regionName":"Central District","city":"Raanana","district":"","zip":"","lat":32.1865,"lon":34.8726,"timezone":"Asia/Jerusalem","offset":10800,"currency":"ILS","isp":"XFone 018 Ltd","org":"XFone 018 Ltd","as":"AS47956 XFone 018 Ltd","asname":"XFONE","reverse":"","mobile":false,"proxy":false,"hosting":false,"query":"141.226.27.42"}"
 
 ### Expiry Date
 
