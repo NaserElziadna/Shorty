@@ -4,7 +4,7 @@
 
 @{
 
-    var urlPrefix = Configuration["BASE_URL"] + Configuration["RedirectToUrl"];
+    var urlPrefix = "/"+Configuration["RedirectToUrl"];
 }
 
 <table id="table"
@@ -98,7 +98,8 @@
     }
 
     function ajaxRequest(params) {
-        let url = `${window.location.origin}/getUserStatistic`;
+        let url = `/getUserStatistic`;
+        //let url = `${window.location.origin}/getUserStatistic`;
         //var url = 'https://examples.wenzhixin.net.cn/examples/bootstrap_table/data'
         $.get(url).then(function (res) {
             console.log(res.links)

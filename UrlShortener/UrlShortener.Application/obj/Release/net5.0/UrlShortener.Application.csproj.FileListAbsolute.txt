@@ -42,3 +42,4 @@ C:\Users\star\Desktop\File\Gategories\Shorty\UrlShortener\UrlShortener.Applicati
 C:\Users\star\Desktop\File\Gategories\Shorty\UrlShortener\UrlShortener.Application\obj\Release\net5.0\UrlShortener.Application.dll
 C:\Users\star\Desktop\File\Gategories\Shorty\UrlShortener\UrlShortener.Application\obj\Release\net5.0\ref\UrlShortener.Application.dll
 C:\Users\star\Desktop\File\Gategories\Shorty\UrlShortener\UrlShortener.Application\obj\Release\net5.0\UrlShortener.Application.pdb
+C:\Users\star\Desktop\File\Gategories\Shorty\UrlShortener\UrlShortener.Application\obj\Release\net5.0\UrlShortener.Application.csproj.CopyComplete

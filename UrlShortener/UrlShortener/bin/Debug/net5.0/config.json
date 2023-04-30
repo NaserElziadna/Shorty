@@ -1,0 +1,13 @@
+{
+  "ConnectionStrings": {
+    "_ConnectionString": "Data Source=(localdb)\\ProjectsV13;Initial Catalog=UrlShortener;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+    "ConnectionString": "Data Source=SQL5054.site4now.net;Initial Catalog=db_a97423_naserelz010;User Id=db_a97423_naserelz010_admin;Password=naser123"
+  },
+  "SendGridAPIKey": "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",
+  "_BASE_URL": "https://localhost:44354/",
+  "BASE_URL": "http://naserelz010-001-site1.ftempurl.com/",
+  "RedirectToUrl": "r/",
+  "IP_API_LOOKUP": "http://ip-api.com/json/##iPAddressReplace##?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query",
+  "SMTP_PASS": "wqcoqypariuatbzy",
+  "SMTP_FROM_MAIL": "elziadna10@gmail.com"
+}

@@ -51,6 +51,7 @@ namespace UrlShortener.Controllers
         {
             try
             {
+                var baseURL = Request.Host.Value;
                 var url = await _shortUrlService.GetShortUrlAsync(code);
                 if (url == null)
                 {
@@ -86,7 +87,7 @@ namespace UrlShortener.Controllers
                         request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
                         //request.Headers.Add("Accept", "application/json");
                         //request.Headers.Add("Authorization", "Bearer mytoken");
-                        request.Headers.Add("Referer", _configration["BASE_URL"]);
+                        request.Headers.Add("Referer", !string.IsNullOrEmpty(baseURL) ? baseURL : _configration["BASE_URL"]);
 
                         var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
 
