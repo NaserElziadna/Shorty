@@ -5,7 +5,7 @@
 
 This is a simple URL shortener web application that allows users to create shortened URLs, which can then be used to redirect to the original URL. In addition to the basic functionality of a URL shortener, this application also includes features such as location detection, expiry date for links, user management, and a statistics page with a powerful data table.
 
-Redirect url Example : [http://naserelz010-001-site1.ftempurl.com/r/zjOgKU9](http://naserelz010-001-site1.ftempurl.com/r/zjOgKU9)
+Redirect url Example : [http://shorty-001-site1.itempurl.com/r/zjOgKU9](http://shorty-001-site1.itempurl.com/r/zjOgKU9) 
 
 ## Features
 
